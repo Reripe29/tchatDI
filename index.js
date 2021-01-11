@@ -1,5 +1,6 @@
 import express from 'express';
 import http from  'http';
+import * as dao from './dao.js'
 
 const app = express ();
 const httpSrv = http.Server(app);
@@ -16,9 +17,8 @@ app.post('/ping', function(req, res){
 })
 app.get('/hello', hello);
 
-const messages = [];
 
-const postMessage = (req, res) => {
+const postMessage = async (req, res) => {
     console.log('l\'utilisateur souhaite poster un message');
     const messageVariable = req.param('message');
     const usernameVariable = req.param('username');
@@ -46,9 +46,11 @@ const postMessage = (req, res) => {
         ts: ts
     
     }
+
+    await dao.insertDocument("Message", monMessage);
     messages.push(monMessage);
     res.status(201);
-    res.send();
+    res.send("Messsagge créé");
 
 }
 
@@ -100,3 +102,4 @@ app.get('/messages', getMessages);
 httpSrv.listen(8080, function (){
     console.log('listening on *:8080')
 })
+
