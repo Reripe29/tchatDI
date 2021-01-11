@@ -35,6 +35,11 @@ const postMessage = (req, res) => {
         return;
     }
     
+    const u = user.find(element => element.username === usernameVariable);
+    if (!u) {
+        res.status(401).end('User unknow');
+    }
+
     const monMessage = {
         message: messageVariable,
         username: usernameVariable,
@@ -49,6 +54,7 @@ const postMessage = (req, res) => {
 
 const getUsers = (req, res) => {
     console.log('get users')
+    const u = user.map(element => {return{username: element.username}} )
     res.json(users);
 }
 
@@ -76,8 +82,6 @@ const postUsers = (req, res) => {
     res.status(201).end();
 
 }
-
-
 
 const users = [];
 
