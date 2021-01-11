@@ -1,0 +1,30 @@
+{
+  "name": "projetperso",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start":"node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Reripe29/siteInternet.git"
+  },
+  "keywords": [
+    "javascript"
+  ],
+  "author": "Killeriper",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Reripe29/siteInternet/issues"
+  },
+  "homepage": "https://github.com/Reripe29/siteInternet#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
