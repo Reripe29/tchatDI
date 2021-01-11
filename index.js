@@ -66,7 +66,7 @@ const postUsers = (req, res) => {
         return;
     }
 
-    if(passwordVariable == null || passwordVariable == undefined || usernameVariable == ''){
+    if(passwordVariable == null || passwordVariable == undefined || passwordVariable == ''){
 
         res.status(400).end('password est vide')
         return;
